@@ -1,4 +1,5 @@
 import anecdotesService from "../services/anecdotesService";
+import {setNotification} from "./notificationReducer";
 
 const getId = () => (100000 * Math.random()).toFixed(0)
 
@@ -37,6 +38,7 @@ export const voteAnecdote = (id) => {
     const changed = {...anecdote, votes: anecdote.votes+1}
     const ret = await anecdotesService.update(id, changed)
     dispatch( { type: 'UPDATE', id: id, item: ret})
+    dispatch(setNotification(`you voted '${ret.content}'`,5))
   }
 }
 
@@ -45,6 +47,7 @@ export const createAnecdote = (content) => {
     const anecdote = asObject(content)
     const savedAnecdote = await anecdotesService.addNew(anecdote)
     dispatch_method({type:'CREATE', item: savedAnecdote})
+    dispatch_method(setNotification(`new anecdote '${savedAnecdote.content}'`,5))
   }
 
 }
