@@ -1,10 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import AnecdotesList from './components/AnecdotesList'
 import NewAnecdote from "./components/NewAnecdote";
 import Notification from "./components/Notification";
+import anecdotesService from "./services/anecdotesService";
+import {useDispatch} from "react-redux";
+import {initializeNotes} from "./reducers/anecdoteReducer";
 
 const App = () => {
     console.log("App")
+
+    const dispatch = useDispatch()
+    useEffect( async () => {
+            const anecdotes = await anecdotesService.getAll()
+            dispatch(initializeNotes(anecdotes))
+        }
+    )
 
   return (
     <div>

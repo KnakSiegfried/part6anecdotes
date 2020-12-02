@@ -2,6 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const Notification = () => {
+
+  console.log("Notification")
+
   const style = {
     border: 'solid',
     padding: 10,
