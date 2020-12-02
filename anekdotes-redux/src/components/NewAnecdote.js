@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 
 const NewAnecdote = () => {
 
+    console.log("NewAnecdote")
     const dispatch = useDispatch()
 
     const create = (event) =>{
