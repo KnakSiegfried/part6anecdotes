@@ -32,7 +32,6 @@ const AnecdotesList = () => {
         )}
         </div>
     )
-
 }
 
 export default AnecdotesList
