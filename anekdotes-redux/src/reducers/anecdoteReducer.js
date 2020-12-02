@@ -28,7 +28,7 @@ export const createAnecdote = (anecdote) => {
   return {type:'CREATE', item: anecdote}
 }
 
-export const initializeNotes = (anecdotes) => {
+export const initializeAnecdotes = (anecdotes) => {
   return {
     type: 'INIT_DATA',
     items : anecdotes

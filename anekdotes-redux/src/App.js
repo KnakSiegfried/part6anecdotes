@@ -4,7 +4,7 @@ import NewAnecdote from "./components/NewAnecdote";
 import Notification from "./components/Notification";
 import anecdotesService from "./services/anecdotesService";
 import {useDispatch} from "react-redux";
-import {initializeNotes} from "./reducers/anecdoteReducer";
+import {initializeAnecdotes} from "./reducers/anecdoteReducer";
 
 const App = () => {
     console.log("App")
@@ -12,7 +12,7 @@ const App = () => {
     const dispatch = useDispatch()
     useEffect( async () => {
             const anecdotes = await anecdotesService.getAll()
-            dispatch(initializeNotes(anecdotes))
+            dispatch(initializeAnecdotes(anecdotes))
         }
     )
 
