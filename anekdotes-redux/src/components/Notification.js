@@ -19,7 +19,7 @@ const Notification = (props) => {
 
 const mapStateToTrops = (state) => {
   return{
-    notification: state.notification
+    notification: state.notification.notification
   }
 
 }

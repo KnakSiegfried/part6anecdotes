@@ -38,7 +38,7 @@ export const voteAnecdote = (id) => {
     const changed = {...anecdote, votes: anecdote.votes+1}
     const ret = await anecdotesService.update(id, changed)
     dispatch( { type: 'UPDATE', id: id, item: ret})
-    dispatch(setNotification(`you voted '${ret.content}'`,5))
+    dispatch(setNotification(`you voted '${ret.content}' - ${ret.votes} votes`,2))
   }
 }
 
